@@ -14,37 +14,77 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Layout from '../../components/Layout/Layout';
+import Swal from 'sweetalert2';
 
 
   const theme = createTheme();
-
+const database = 
+[
+  {
+    email:"avinash@gmail.com",
+    password:"avi123"    
+  },
+  {
+    email:"aarti08@gmail.com",
+    password:"@RTi"
+  },
+  {
+    email:"jasonmomo@gmail.com",
+    password:"json"
+  }
+]
 export default function SignIn() {
-  const[state,setState] = React.useState({
-    email:"cvr",
-    password:"cvr"
-  })
+  const[email,setEmail] = React.useState(null)
+  const[password,setPassword]= React.useState(null)
+ 
+ 
     const handleSubmit = (event) => {
       event.preventDefault();
-      setState(event.currentTarget.email,event.currentTarget.password)
-      // const data = new FormData(event.currentTarget);
-      const e = document.getElementById('email').value==="cvr@cvr.ac.in"
-      const p = document.getElementById('password').value==="cvr"
-      // if(e&& p)
-      // {
-      //   console.log('All correct')
-       
-      //   return (<Navigate href="/admin-front"></Navigate>)
-        
-      // }
-     
-      // else
-      if(!e || !p)
+      
+      console.log(event.target.email.value)
+      var flag = false
+      for(let i = 0;i<database.length;i++)
       {
-        alert('Invalid Credentials')
-        
+        if(database[i].email===event.target.email.value && database[i].password===event.target.password.value)
+        {
+          flag = true
+          
+        }
       }
+      if(flag===false)
+      {
+        
+        
+        // return (<Navigate href = "/patient-front"></Navigate>)
+      }
+      else
+      {
+        const e = event.target.email.value==="cvr"
+        const p = event.target.password.value==="cvr"
+        if(e && p)
+        {
+          
+          console.log('All correct')
+         
+          return (<Navigate href="/admin-front"></Navigate>)
+        }
+      }
+   
+     
+     
+     
     };
-  
+    const handleInputChange = (e)=>{
+      const{id,value} = e.target
+      if(id==="email")
+      {
+        setEmail(value)
+      }
+      if(id==="password")
+      {
+        setPassword(value)
+      }
+    }
     return (
       <Layout>
       <div className='home'>
@@ -75,6 +115,8 @@ export default function SignIn() {
                 name="email"
                 autoComplete="email"
                 autoFocus
+                value ={email}
+                onChange = {(e)=>handleInputChange(e)}
               />
               <TextField
                 margin="normal"
@@ -85,19 +127,24 @@ export default function SignIn() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                value = {password}
+                onChange = {(e)=>handleInputChange(e)}
               />
-              <FormControlLabel
+              {/* <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
-              />
-              <button 
-              // onClick={handleSubmit}
-               style={{width:"200px"}}>
+              /> */}
+              <Button 
+              
+               
+               fullWidth
+               sx={{ mt: 3, mb: 2 }}
+               variant='contained'>
 
               
-              <Link href="/admin-front"> Sign In</Link> 
+               Sign In
              
-              </button>
+              </Button>
               <Grid container>
                 <Grid item xs>
                  
@@ -119,11 +166,11 @@ export default function SignIn() {
         </Layout>
     
     );
-  }
+  
 
 
 
 
 
 
-
+                }

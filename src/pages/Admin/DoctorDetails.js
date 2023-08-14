@@ -18,18 +18,21 @@ export default function DoctorDetails() {
   return (
     <Layout>
         <div style={{height:"750px"}}>
+            <h2>Doctor details</h2>
         <TableContainer>
             <Table>
-                <TableHead>DoctorDetails</TableHead>
+                
                 <TableRow>
                     <TableCell>Doctor Id</TableCell>
                     <TableCell>Doctor name</TableCell>
                     <TableCell>Number of appointments conducted</TableCell>
+                    <TableCell>Specialization</TableCell>
                 </TableRow>
                 <TableRow>
                     <TableCell>A1</TableCell>
                     <TableCell>Venu</TableCell>
                     <TableCell>3</TableCell>
+                    <TableCell></TableCell>
                 </TableRow>
                 <TableRow>
                     <TableCell>A2</TableCell>

@@ -1,17 +1,22 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Button } from '@mui/material'
+import { Button,TableContainer,TableRow } from '@mui/material'
 import Layout from '../../components/Layout/Layout'
+
 export default function Profile() {
   return (
     <Layout>
-    <div style={{width:"250px",height:"750px"}}>
+    <div style={{height:"750px"}}>
     <h1>Patient Page</h1>
-   <Button > <Link href="/appointments">View upcoming appointments</Link></Button>
-   <Button ><Link href="/appointments">View past appointments</Link></Button>
-   <Button > <Link href="/appointments">View pending payments</Link></Button>
-    <Button ><Link href="/appointments">Cancel Appointment</Link></Button>
-    
+    <TableContainer>
+   <TableRow><Button variant='contained'> <Link to="/attend-appointments">View upcoming appointments</Link></Button></TableRow>
+   <br></br>
+   <TableRow><Button variant='contained'><Link to="/appointments">Book appointments</Link></Button></TableRow>
+   <br></br>
+   <TableRow><Button variant='contained'> <Link href="/attend-appointment">Attend Appointment</Link></Button></TableRow>
+   <br></br>
+   <TableRow> <Button variant='contained'><Link to="/patient-cancel-appointment">Cancel Appointment</Link></Button></TableRow>
+    </TableContainer>
 </div>
 </Layout>
   )

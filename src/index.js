@@ -7,28 +7,7 @@ import {connect,mongoose} from 'mongoose'
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-// mongoose.connect('mongodb+srv://writetosalonistephen:admin@cluster0.httfceh.mongodb.net/?retryWrites=true&w=majority')
 
-
-// const connection =
-
-//   "mongodb+srv://<myusernamehere>:<mypasswordhere>@cluster0.gcyyo.mongodb.net/<mydatabasehere>?retryWrites=true&w=majority";
-
-// mongoose
-
-//   .connect(connection, {
-
-//     useNewUrlParser: true,
-
-//     useUnifiedTopology: true,
-
-//     useFindAndModify: false,
-
-//   })
-
-//   .then(() => console.log("Database Connected Successfully"))
-
-//   .catch((err) => console.log(err));
 root.render(
   <React.StrictMode>
     <App />

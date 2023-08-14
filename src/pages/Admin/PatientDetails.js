@@ -14,13 +14,15 @@ import {
   TableRow,
   Typography,
 } from "@mui/material";
+import database from "../../db-model/database";
 export default function PatientDetails() {
   return (
     <Layout>
         <div style={{height:"750px"}}>
+            <h2>Patient Details</h2>
         <TableContainer>
             <Table>
-                <TableHead>PatientDetails</TableHead>
+              
                 <TableRow>
                     <TableCell>Patient Id</TableCell>
                     <TableCell>Patient name</TableCell>

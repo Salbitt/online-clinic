@@ -14,7 +14,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Layout from '../../components/Layout/Layout';
-
+import Swal from 'sweetalert2';
 
   const theme = createTheme();
 
@@ -22,6 +22,12 @@ export default function LogIn() {
   const[state,setState] = React.useState({
     email:"",
     password:""
+  })
+  Swal.fire({
+    icon: 'error',
+    title: 'Invalid Credentials',
+    text: 'Please Enter correct email and password',
+    // footer: '<a href="">Why do I have this issue?</a>'
   })
     const handleSubmit = (event) => {
       event.preventDefault();
@@ -87,7 +93,7 @@ export default function LogIn() {
                 
                 sx={{ mt: 3, mb: 2 }}
               >
-              <Link href="/admin-front"> Login In</Link> 
+               Login In
              
               </Button>
               <Grid container>
